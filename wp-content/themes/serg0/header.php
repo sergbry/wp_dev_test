@@ -66,12 +66,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </form>
             </div>
             <span class="menu"> </span>
-            <ul>
-                <li class="active"><a href="index.html">HOME</a></li>
-                <li><a href="about.html">ABOUT</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
-                <div class="clearfix"> </div>
-            </ul>
+
+            <?php wp_nav_menu();?>
+
         </div>
         <div class="clearfix"></div>
         <script>
