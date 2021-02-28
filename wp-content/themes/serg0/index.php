@@ -21,7 +21,7 @@ while( have_posts() ){
                             <h4>
                                 <a href="<?= get_permalink(); ?>">
                                     <?= get_the_title(); ?>
-                                </a> <?= $post->post_date; ?> / <?= $post->comment_count; ?> Comments
+                                </a> <?= get_the_date(); ?> / <?= $post->comment_count; ?> Comments
                             </h4>
                             <?php the_content('READ MORE'); ?>
                             <a href="<?= get_permalink(); ?>"><span></span></a>
@@ -33,7 +33,11 @@ while( have_posts() ){
                 </div>
             </div>
 <!-- //content-main-->
-
+<!-- content-right-->
+            <div class="col-md-4 content-right">
+                <?php dynamic_sidebar('right-sidebar'); ?>
+            </div>
+<!-- //content-right-->
         </div>
     </div>
 </div>

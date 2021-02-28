@@ -1,10 +1,13 @@
 <?php
 
+add_theme_support( 'post-thumbnails' ); // Позволяем добавлять миниатюры постов
+
 add_action( 'wp_enqueue_scripts', 'theme_stylе' ); // Подключение стилей темы
 add_action( 'after_setup_theme', 'theme_menu' ); // Подключение меню
 add_action( 'widgets_init', 'theme_widgets' ); // Регистрация сайдбара
 
-add_theme_support( 'post-thumbnails' ); // Позволяем добавлять миниатюры постов
+add_filter( 'dynamic_sidebar_params', 'theme_widget_custom_class' ); // добавляем класс верстальщика к классам виджета
+
 
 function theme_stylе() {
 
@@ -27,6 +30,33 @@ function theme_widgets() {
         'id' => 'right-sidebar',
         'description' => 'Add widgets to right sidebar',
         'before_title' => '',
-        'after_title' => ''
+        'after_title' => '',
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget' => '</div>'
     ) );
+}
+
+function theme_widget_custom_class($params) {
+
+    $before_widet = $params[0]['before_widget'];
+    $widget_id = $params[0]['widget_id'];
+    $wp_class = $theme_class = '">';
+    switch ($widget_id) {
+        case 'recent-comments-3':
+            $theme_class = ' comments">';
+            break;
+        case 'recent-posts-3':
+            $theme_class = ' recent">';
+            break;
+        case 'archives-3':
+            $theme_class = ' archives">';
+            break;
+        case 'categories-3':
+            $theme_class = ' categories">';
+            break;
+    }
+
+    $params[0]['before_widget'] = str_replace($wp_class,$theme_class,$before_widet);
+
+    return $params;
 }
