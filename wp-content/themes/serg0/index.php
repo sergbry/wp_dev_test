@@ -36,7 +36,9 @@ while( have_posts() ){
 <!-- content-right-->
             <div class="col-md-4 content-right">
                 <?php dynamic_sidebar('right-sidebar'); ?>
+                <div class="clearfix"></div>
             </div>
+            <div class="clearfix"></div>
 <!-- //content-right-->
         </div>
     </div>

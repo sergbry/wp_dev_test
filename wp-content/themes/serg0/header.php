@@ -35,6 +35,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <link href='http://fonts.googleapis.com/css?family=Oswald:100,400,300,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic' rel='stylesheet' type='text/css'>
     <!----//webfonts---->
+    <!---->
+
+<?php wp_head(); ?>
+
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             $(".scroll").click(function(event){
@@ -43,9 +47,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             });
         });
     </script>
-    <!---->
-
-<?php wp_head(); ?>
 
 </head>
 

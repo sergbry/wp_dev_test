@@ -39,11 +39,13 @@ function theme_widgets() {
 function theme_widget_custom_class($params) {
 
     $before_widet = $params[0]['before_widget'];
+    $after_widget = $params[0]['after_widget'];
     $widget_id = $params[0]['widget_id'];
     $wp_class = $theme_class = '">';
     switch ($widget_id) {
         case 'recent-comments-3':
             $theme_class = ' comments">';
+            $params[0]['after_widget'] = $after_widget.'<div class="clearfix"></div>';
             break;
         case 'recent-posts-3':
             $theme_class = ' recent">';
