@@ -62,3 +62,50 @@ function theme_widget_custom_class($params) {
 
     return $params;
 }
+
+/**
+ * BEGIN FORM
+ */
+add_filter( 'comment_form_fields', 'theme_comment_form' );
+function theme_comment_form( $fields ){
+
+    global $id; // Айдишник текущего поста
+
+    // Отключение ненужных полей формы комментария
+    unset( $fields['url'] );
+    unset( $fields['cookies'] );
+
+    $theme_fields = array(); // Поля формы на выходе
+
+
+
+    // Поля в нужном порядке
+    $theme_fields['author'] = '<input id="author" name="author" type="text" value="" size="30" maxlength="245" placeholder="Name" required="required" />';
+    $theme_fields['email'] = '<input id="email" name="email" type="text" value="" size="30" maxlength="100" aria-describedby="email-notes" placeholder="Email" required="required" />';
+    $theme_fields['phone'] = '<input id="phone" name="phone" type="text" size="30" placeholder="Phone" required="required" />';
+    if ($id == 15) {
+        // Добавляем поле в комментариях к странице КОНТАКТЫ
+        $theme_fields['city'] = '<input id="city" name="city" type="text" size="30" placeholder="City Name" required="required" />';
+    }
+    $theme_fields['comment'] = '<textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" placeholder="Message" required="required"></textarea>';
+
+    return $theme_fields;
+}
+
+add_action( 'comment_post', 'theme_save_comment_meta_data' ); // Добавляем метаполя в форму комментария
+
+function theme_save_comment_meta_data( $comment_id ) {
+    // Поле "Phone"
+    if ( ! empty( $_POST['phone'] ) ) {
+        $phone = sanitize_text_field( $_POST['phone'] );
+        add_comment_meta( $comment_id, 'phone', $phone );
+    }
+    // Поле "City"
+    if ( ! empty( $_POST['city'] ) ) {
+        $phone = sanitize_text_field( $_POST['city'] );
+        add_comment_meta( $comment_id, 'city', $phone );
+    }
+}
+/**
+ * END FORM
+ */

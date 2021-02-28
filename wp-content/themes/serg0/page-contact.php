@@ -1,4 +1,19 @@
-<?php get_header(); ?>
+<?php
+
+get_header();
+
+the_post();
+
+$args = array(
+    'label_submit' => 'SEND',
+    'title_reply_before' => '',
+    'title_reply' => '',
+    'title_reply_to' => '',
+    'title_reply_after' => '',
+    'comment_notes_before' => '',
+);
+
+?>
     <div class="contact-content">
         <div class="container">
             <div class="contact-info">
@@ -6,14 +21,7 @@
                 <?= the_content(); ?>
             </div>
             <div class="contact-details">
-                <form>
-                    <input type="text" placeholder="Name" required/>
-                    <input type="text" placeholder="Email" required/>
-                    <input type="text" placeholder="Phone" required/>
-                    <input type="text" placeholder="City Name" required/>
-                    <textarea placeholder="Message"></textarea>
-                    <input type="submit" value="SEND"/>
-                </form>
+                <?php comment_form($args); ?>
             </div>
             <div class="contact-details">
                 <div class="col-md-6 contact-map">
