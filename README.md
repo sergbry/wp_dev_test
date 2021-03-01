@@ -1,2 +1,2 @@
 # wp_dev_test
-for WP developer vacancy test
+Theme for WP developer vacancy test
