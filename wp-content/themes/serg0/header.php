@@ -61,10 +61,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!---start-top-nav---->
         <div class="top-menu">
             <div class="search">
-                <form>
-                    <input type="text" placeholder="" required="">
-                    <input type="submit" value="">
-                </form>
+                <?php get_search_form(); ?>
             </div>
             <span class="menu"> </span>
 
