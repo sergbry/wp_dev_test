@@ -6,13 +6,14 @@
 <!-- content-main-->
             <div class="col-md-8 content-main">
                 <div class="content-grid">
+
 <?php if ( is_search()  && !have_posts() ) { ?>
-    <div class="content-grid-info">
-        <div class="post-info">
-            <h4>Search results:</h4>
-            <p>Sorry. There is no content like <b>"<?= get_search_query() ?>"</b> here.</p>
-        </div>
-    </div>
+                    <div class="content-grid-info">
+                        <div class="post-info">
+                            <h4>Search results:</h4>
+                            <p>Sorry. There is no content like <b>"<?= get_search_query() ?>"</b> here.</p>
+                        </div>
+                    </div>
 <?php }
 
 while( have_posts() ){
