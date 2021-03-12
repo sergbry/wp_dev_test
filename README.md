@@ -1,2 +1,5 @@
 # wp_dev_test
-Theme for WP developer vacancy test
+Theme for WP integrator vacancy test
+- **db-path**: "/wp-content/themes/serg0/base/wp_devtst.sql";
+- **db-user**: "admin";
+- **db-pass**: "admin";
